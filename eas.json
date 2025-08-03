@@ -17,6 +17,9 @@
         "buildType": "apk",
         "gradleCommand": ":app:assembleRelease"
       },
+      "ios": {
+        "distribution": "internal"
+      },
       "env": {
         "NODE_ENV": "production",
         "EXPO_PUBLIC_SUPABASE_URL": "https://kpzpsljkpvalemxgzsis.supabase.co",
@@ -25,10 +28,9 @@
     },
     "production": {
       "autoIncrement": true,
-      "android": {
-        "buildType": "app-bundle",
-        "credentialsSource": "local",
-        "gradleCommand": ":app:bundleRelease"
+      "ios": {
+        "distribution": "store",
+        "credentialsSource": "remote"
       },
       "env": {
         "NODE_ENV": "production",
@@ -36,8 +38,5 @@
         "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtwenBzbGprcHZhbGVteGd6c2lzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ5NzE5NzQsImV4cCI6MjA1MDU0Nzk3NH0.Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8"
       }
     }
-  },
-  "submit": {
-    "production": {}
   }
 }

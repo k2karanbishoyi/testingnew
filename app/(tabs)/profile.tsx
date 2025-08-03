@@ -3,26 +3,23 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
   TouchableOpacity,
+  ScrollView,
   Alert,
   Image,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   User,
-  Crown,
-  Star,
-  Calendar,
-  Mail,
   Settings,
-  CreditCard,
+  Crown,
+  Image as ImageIcon,
   LogOut,
 } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useAuth } from '@/hooks/use_auth';
+import { useAuth } from '../../hooks/use_auth';
 import { router } from 'expo-router';
-import { supabase } from '@/lib/supabase';
+import { supabase } from '../../lib/supabase';
 
 export default function ProfileScreen() {
   const { user, signOut, refreshProfile } = useAuth();
@@ -162,7 +159,7 @@ export default function ProfileScreen() {
         <View style={styles.menuContainer}>
           <TouchableOpacity style={styles.menuItem}>
             <View style={styles.menuItemLeft}>
-              <Mail size={20} color="#6B7280" />
+              <ImageIcon size={20} color="#6B7280" />
               <Text style={styles.menuItemText}>Email</Text>
             </View>
             <Text style={styles.menuItemValue}>{user.email}</Text>
@@ -173,7 +170,7 @@ export default function ProfileScreen() {
             onPress={handleSubscription}
           >
             <View style={styles.menuItemLeft}>
-              <CreditCard size={20} color="#6B7280" />
+              <ImageIcon size={20} color="#6B7280" />
               <Text style={styles.menuItemText}>Subscription</Text>
             </View>
             <Text style={styles.menuItemValue}>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext, useContext, ReactNode } from 'react';
 import { Platform } from 'react-native';
 import { Session, User } from '@supabase/supabase-js';
-import { supabase } from '@/lib/supabase';
+import { supabase } from '../lib/supabase';
 
 interface UserProfile {
   id: string;

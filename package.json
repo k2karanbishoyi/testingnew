@@ -9,7 +9,10 @@
     "lint": "expo lint",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "start": "expo start --dev-client"
+    "start": "expo start --dev-client",
+    "build:ios": "eas build --platform ios --profile production",
+    "build:ios-preview": "eas build --platform ios --profile preview",
+    "setup:credentials": "eas credentials"
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.1",
@@ -59,6 +62,7 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@types/react": "~19.0.10",
+    "babel-plugin-module-resolver": "^5.0.2",
     "typescript": "~5.8.3"
   }
 }

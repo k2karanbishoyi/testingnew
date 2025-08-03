@@ -1,0 +1,35 @@
+workflows:
+  ios-workflow:
+    name: iOS Build
+    environment:
+      vars:
+        BUNDLE_ID: "com.remove.help"
+        EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      xcode: latest
+      node: latest
+    scripts:
+      - name: Set up code signing settings on Xcode project
+        script: |
+          keychain initialize
+          app-store-connect fetch-signing-files "com.remove.help" --type IOS_APP_STORE --create
+          xcode-project use-profiles
+      - name: Install dependencies
+        script: |
+          npm install
+      - name: Install EAS CLI
+        script: |
+          npm install -g eas-cli
+      - name: Login to Expo
+        script: |
+          eas login --non-interactive --token $EXPO_TOKEN
+      - name: Build iOS app
+        script: |
+          eas build --platform ios --profile preview --non-interactive --local-build-artifact=build/ios
+    artifacts:
+      - build/ios/*.ipa
+      - build/ios/*.app
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      email:
+        recipients:
+          - your-email@example.com 
